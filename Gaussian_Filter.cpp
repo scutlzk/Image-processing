@@ -1,4 +1,4 @@
-
+//é«˜æ–¯æ»¤æ³¢å™¨    https://github.com/scutlzk
 #include <opencv2\highgui\highgui.hpp>
 #include <iostream>
 #include <vector>
@@ -24,7 +24,7 @@ void Get_Gaussian_Kernel(double*& gaus_1, const int size, const double sigma_s)
 	for (int i = 0; i<size; i++) {
 		for (int j = 0; j<size; j++) {
 			gaus[i][j] /= sum;
-			gaus_1[i*size + j] = gaus[i][j];	//Ê¹ÓÃÒ»Î¬¸ü¼òµ¥
+			gaus_1[i*size + j] = gaus[i][j];	//ä½¿ç”¨ä¸€ç»´æ›´ç®€å•
 		}
 	}
 	
@@ -53,7 +53,7 @@ void Gaussian_Filter(const char *filename, Mat *&dst,const int size,const double
 				for (int n = i - size / 2; n<i + size / 2 + 1; n++)
 				{
 					
-					if (m<0 || n<0 || m>src.rows - 1 || n>src.cols - 1) { index++; continue; }//±ßÔµ²»´¦Àí  
+					if (m<0 || n<0 || m>src.rows - 1 || n>src.cols - 1) { index++; continue; }//è¾¹ç¼˜ä¸å¤„ç†  
 					sum0 += src.at<Vec3b>(m, n)[0] * templates[index++];
 					sum1 += src.at<Vec3b>(m, n)[1] * templates[index-1];
 					sum2 += src.at<Vec3b>(m, n)[2] * templates[index-1];
